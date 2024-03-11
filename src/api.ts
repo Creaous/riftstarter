@@ -15,9 +15,10 @@ export async function findServer(name: string) {
 }
 
 /**
- * Get remote instances.
- * @param server - The server object.
- * @returns The response data if successful, otherwise the error response data.
+ * Retrieves the list of servers for a given remote UUID.
+ *
+ * @param remote_uuid - The UUID of the remote service.
+ * @returns A promise that resolves to the server data or an error response.
  */
 export async function getServers(remote_uuid: string) {
 	try {
@@ -40,9 +41,9 @@ export async function getServers(remote_uuid: string) {
 }
 
 /**
- * Get remote instances.
- * @param server - The server object.
- * @returns The response data if successful, otherwise the error response data.
+ * Retrieves server data from the API.
+ * @param server - The server object containing the necessary UUIDs.
+ * @returns A promise that resolves to the server data.
  */
 export async function getServer(server: any) {
 	try {
