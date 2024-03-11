@@ -80,6 +80,11 @@ export async function execute(interaction: ChatInputCommandInteraction) {
 	embed.setDescription(`Requesting server to stop...`);
 	await interaction.reply({ embeds: [embed] });
 
+	// Log the server stop request
+	console.log(
+		`${interaction.member?.user.username} is stopping server ${server.name}...`
+	);
+
 	let action;
 
 	// Loop through each server instance and stop the server

@@ -84,6 +84,11 @@ export async function execute(interaction: ChatInputCommandInteraction) {
 	embed.setDescription(`Requesting status of server...`);
 	await interaction.reply({ embeds: [embed] });
 
+	// Log the server status request
+	console.log(
+		`${interaction.member?.user.username} is requesting status of server ${server.name}...`
+	);
+
 	let action = await getServer(server.servers[0]);
 
 	if (action.data.status === 0) {

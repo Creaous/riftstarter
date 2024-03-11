@@ -82,6 +82,11 @@ export async function execute(interaction: ChatInputCommandInteraction) {
 	embed.setDescription(`Requesting server to start...`);
 	await interaction.reply({ embeds: [embed] });
 
+	// Log the server start request
+	console.log(
+		`${interaction.member?.user.username} is starting server ${server.name}...`
+	);
+
 	let action;
 
 	// Loop through each server instance and start the server

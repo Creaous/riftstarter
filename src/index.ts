@@ -15,29 +15,29 @@ client.once('ready', async () => {
 	// Get all guilds the client is a member of
 	const guilds = client.guilds.cache;
 
-	// Leave any guild that is not the main guild
+	// Leave any guild that is not in the list of main guilds
 	for (const guild of guilds) {
-		if (guild[0] !== config.DISCORD_GUILD_ID) {
+		if (!config.DISCORD_GUILD_IDS!.includes(guild[0])) {
 			console.log(
-				`Leaving ${guild[1].name} since it is not the main guild`
+				`Leaving ${guild[1].name} since it is not a main guild`
 			);
 			guild[1].leave();
 		} else {
 			// Deploy commands to the main guild
-			await deployCommands({ guildId: config.DISCORD_GUILD_ID! });
+			await deployCommands({ guildId: guild[0] });
 		}
 	}
 });
 
 // Event: When the client joins a guild
 client.on('guildCreate', async (guild: Guild) => {
-	if (guild.id !== config.DISCORD_GUILD_ID) {
-		console.log('Joined a new guild, but it is not the main guild');
+	if (!config.DISCORD_GUILD_IDS!.includes(guild.id)) {
+		console.log(`Leaving ${guild.name} since it is not a main guild`);
 		// Leave the guild
 		guild.leave();
 	} else {
 		// Deploy commands to the main guild
-		await deployCommands({ guildId: config.DISCORD_GUILD_ID! });
+		await deployCommands({ guildId: config.DISCORD_GUILD_IDS! });
 	}
 });
 
