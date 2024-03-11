@@ -3,6 +3,9 @@ import { config } from './config';
 import { commands } from './commands';
 import { deployCommands } from './deploy-commands';
 
+// Log the timestamp with each log
+require('log-timestamp');
+
 // Create a new Discord client
 export const client = new Client({
 	intents: ['Guilds', 'GuildMessages', 'DirectMessages']

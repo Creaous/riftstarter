@@ -9,6 +9,7 @@ A Discord bot made to interact with the
 -   **/start** - Starts a requested server.
 -   **/stop** - Stops a requested server.
 -   **/status** - Get status of a requested server.
+-   **/list** - Lists all servers.
 
 ## Setup
 
