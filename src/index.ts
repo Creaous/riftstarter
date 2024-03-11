@@ -40,7 +40,7 @@ client.on('guildCreate', async (guild: Guild) => {
 		guild.leave();
 	} else {
 		// Deploy commands to the main guild
-		await deployCommands({ guildId: config.DISCORD_GUILD_IDS! });
+		await deployCommands({ guildId: guild.id });
 	}
 });
 
