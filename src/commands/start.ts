@@ -106,7 +106,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
 	}
 
 	// Send a success message
-	embed.setColor(0x00ff00);
+	embed.setColor(0xffff00);
 	embed.setDescription(`Server is starting! 🚀`);
 	return interaction.editReply({ embeds: [embed] });
 }
