@@ -1,4 +1,4 @@
-import { Client, Guild } from 'discord.js';
+import { ActivityType, Client, Guild } from 'discord.js';
 import { config } from './config';
 import { commands } from './commands';
 import { deployCommands } from './deploy-commands';
@@ -15,19 +15,30 @@ export const client = new Client({
 client.once('ready', async () => {
 	console.log('Discord bot is ready! 🤖');
 
+	// Set the bot's presence
+	client.user?.setPresence({
+		activities: [
+			{
+				name: 'to commands',
+				type: ActivityType.Listening
+			}
+		],
+		status: 'idle'
+	});
+
 	// Get all guilds the client is a member of
 	const guilds = client.guilds.cache;
 
 	// Leave any guild that is not in the list of main guilds
 	for (const guild of guilds) {
-		if (!config.DISCORD_GUILD_IDS!.includes(guild[0])) {
+		if (!config.DISCORD_GUILD_IDS!.includes(guild[1].id)) {
 			console.log(
 				`Leaving ${guild[1].name} since it is not a main guild`
 			);
-			guild[1].leave();
+			//guild[1].leave();
 		} else {
 			// Deploy commands to the main guild
-			await deployCommands({ guildId: guild[0] });
+			await deployCommands({ guildId: guild[1].id });
 		}
 	}
 });
@@ -37,7 +48,7 @@ client.on('guildCreate', async (guild: Guild) => {
 	if (!config.DISCORD_GUILD_IDS!.includes(guild.id)) {
 		console.log(`Leaving ${guild.name} since it is not a main guild`);
 		// Leave the guild
-		guild.leave();
+		//guild.leave();
 	} else {
 		// Deploy commands to the main guild
 		await deployCommands({ guildId: guild.id });
