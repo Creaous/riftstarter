@@ -1,0 +1,43 @@
+{
+	"factorio": {
+		"name": "Factorio",
+		"servers": [
+			{
+				"remote_uuid": "3dd0dd9116d1441fabe65decd8023ea0",
+				"uuid": "2fc3c4f4848549ad883b626483313eb2"
+			}
+		],
+		"prohibited": true
+	},
+	"gmod": {
+		"name": "Garry's Mod",
+		"servers": [
+			{
+				"remote_uuid": "3dd0dd9116d1441fabe65decd8023ea0",
+				"uuid": "daa55defa114499189a2b63633bb5c1a"
+			}
+		],
+		"prohibited": false
+	},
+	"minecraft": {
+		"name": "Minecraft",
+		"servers": [
+			{
+				"__comment": "Proxy",
+				"remote_uuid": "3dd0dd9116d1441fabe65decd8023ea0",
+				"uuid": "41d4c805eb574ca3a5e7adb9e6b827ac"
+			},
+			{
+				"__comment": "Lobby",
+				"remote_uuid": "3dd0dd9116d1441fabe65decd8023ea0",
+				"uuid": "4d23a3969d1c4cf3ae735183a52d9e45"
+			},
+			{
+				"__comment": "SMP",
+				"remote_uuid": "3dd0dd9116d1441fabe65decd8023ea0",
+				"uuid": "c63c6a51136444fb95b4da2e5d4132c8"
+			}
+		],
+		"prohibited": false
+	}
+}
