@@ -19,7 +19,7 @@ client.once('ready', async () => {
 	client.user?.setPresence({
 		activities: [
 			{
-				name: 'to commands',
+				name: 'server commands',
 				type: ActivityType.Listening
 			}
 		],
